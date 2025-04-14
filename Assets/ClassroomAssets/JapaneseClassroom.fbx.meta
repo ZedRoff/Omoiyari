@@ -3,7 +3,72 @@ guid: f4f22135f292f4ab0b554cae5a37c52a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BancaEstudiante_14_phong1
+    second: {fileID: 2100000, guid: fbf75fcf2614442a0852b1f9512ea4cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Libreros1
+    second: {fileID: 2100000, guid: 7adb8857b0fce4073995943aa35b6ae6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LockerLampara
+    second: {fileID: 2100000, guid: 4365192438c424d1fa8e00f4e853149f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MuroDetalle
+    second: {fileID: 2100000, guid: e2efddd93c48a46c3ab3e7611425eb15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MurosLaterales
+    second: {fileID: 2100000, guid: 4080c0a87c1a84b5398f64a97b49789c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pizarrones1
+    second: {fileID: 2100000, guid: 48ca5b33915d34b01858aee3bcef7de1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingrayPBS2
+    second: {fileID: 2100000, guid: 71fd4b153e13a4b9bbed872e72082313, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingrayPBS3
+    second: {fileID: 2100000, guid: 8475a6583b60e4edaa40d0cb1a7bdd37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingrayPBS9
+    second: {fileID: 2100000, guid: a10b7f0081cee4097952b10252290ec9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tarima1
+    second: {fileID: 2100000, guid: 3b21b13c4930b4e03a4f68c4c52166bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert28
+    second: {fileID: 2100000, guid: 0a3c5e84cbe2e4086821b51fda6ca835, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert42
+    second: {fileID: 2100000, guid: 8846a110c4db94df38b4ee4b5495f3df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong2
+    second: {fileID: 2100000, guid: 7c097617f21db488c8f7b6693a22f4f7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
