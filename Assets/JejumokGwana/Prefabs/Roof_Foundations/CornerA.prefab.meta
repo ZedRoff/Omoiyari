@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: c8526a90075ad0d4cb69da625184ba4f
+guid: 910cf387400a6479d89e111b01b80ddb
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Roof_Foundations/CornerA.prefab
-  uploadId: 578252

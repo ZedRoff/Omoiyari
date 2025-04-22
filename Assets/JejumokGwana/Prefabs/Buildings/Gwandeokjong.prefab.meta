@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 487a0666df8bf2f4b949f42016d64962
+guid: 178d10eff41124f2fac21b8203c061af
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Buildings/Gwandeokjong.prefab
-  uploadId: 578252

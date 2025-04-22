@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: f80e58617d36b1d4984c0a472ee980d9
+guid: 45403d506a1b14236b2c4304196eaac2
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Building_Walls/OuterWall_Corner.prefab
-  uploadId: 578252

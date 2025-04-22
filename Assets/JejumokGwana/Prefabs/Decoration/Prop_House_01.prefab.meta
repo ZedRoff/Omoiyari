@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 98c9d251aed0db141a7a0a69a945a5cf
+guid: a458df992de034965aed73b5c8d9ff3c
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Decoration/Prop_House_01.prefab
-  uploadId: 578252

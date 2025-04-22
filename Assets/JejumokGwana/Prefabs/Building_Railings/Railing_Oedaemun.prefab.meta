@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 3d328a2424fa0464cb61ecb84d376ed8
+guid: bd61a6e38738848bf8c5602f6b0bd423
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Building_Railings/Railing_Oedaemun.prefab
-  uploadId: 578252

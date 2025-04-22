@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: a43d03c255d79364f8642c77ae1befe7
+guid: 09798d947fb4b45bbb15ba5bb1dd292d
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Building_Walls/OuterWall_Door.prefab
-  uploadId: 578252

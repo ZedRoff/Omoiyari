@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 7b2741bdb35aacb42bb1b2c318426c38
+guid: f62267a5e60d64a48b113aa74c950555
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Buildings/Yeonhuigak.prefab
-  uploadId: 578252

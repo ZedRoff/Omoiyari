@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 5fc8fc23a92249640931ee8d286c30d5
+guid: 3d798492ad1d940f584e75a8cdcc83ea
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Decoration/Tombstone.prefab
-  uploadId: 578252

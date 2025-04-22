@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 5f4b15225e01711429e64d8dbf128676
+guid: 17ca01f96cc134d7ead1c2bf528db0f5
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Decoration/Well.prefab
-  uploadId: 578252

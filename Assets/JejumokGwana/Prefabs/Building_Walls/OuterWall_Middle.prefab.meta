@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: d39c6efba0afd5f47912baa7b5ce5849
+guid: 248fd1a4c65864756a41440402b4c845
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Building_Walls/OuterWall_Middle.prefab
-  uploadId: 578252

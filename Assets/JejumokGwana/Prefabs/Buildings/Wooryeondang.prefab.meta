@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 2dfd44ad77664c543a9b1e209eb44466
+guid: e70309ebe8d9f4b9288f8a68987ef56d
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Buildings/Wooryeondang.prefab
-  uploadId: 578252

@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: d4f81ce18fb9dd84d83f171ee99d380e
+guid: eb293362acf4245d9a6c41eaace1c810
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Building_Pillars/RedPillarSquare.prefab
-  uploadId: 578252

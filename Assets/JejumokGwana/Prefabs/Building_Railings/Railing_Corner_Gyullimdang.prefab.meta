@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 7af29a9b86d77eb43bbe3c51f71be18a
+guid: 0b29bc795a6f0441cb2ef15d8dc7825c
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Building_Railings/Railing_Corner_Gyullimdang.prefab
-  uploadId: 578252

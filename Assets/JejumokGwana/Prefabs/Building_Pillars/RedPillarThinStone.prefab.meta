@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 67851c792e877044184cac72c4e5af89
+guid: b1e4a13707e634000a62ee0a4b9089a5
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Building_Pillars/RedPillarThinStone.prefab
-  uploadId: 578252

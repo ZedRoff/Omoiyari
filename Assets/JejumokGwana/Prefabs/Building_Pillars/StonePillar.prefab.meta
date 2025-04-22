@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: ce85038e28381c741b121581ef73f2dc
+guid: 9572c27cd720c48d69ee035bf65d4078
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Building_Pillars/StonePillar.prefab
-  uploadId: 578252

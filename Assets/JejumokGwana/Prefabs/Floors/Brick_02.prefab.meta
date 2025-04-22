@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 811271c010bf4d248a8eaa8e775a3f4d
+guid: 65f0ad2b94f634bad92e6a5fce289e6d
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Floors/Brick_02.prefab
-  uploadId: 578252

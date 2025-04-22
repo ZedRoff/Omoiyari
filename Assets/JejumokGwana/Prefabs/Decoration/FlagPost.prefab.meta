@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 3c95d2f9f3258904bba2ef03977e8961
+guid: f41958abefde8410cb315daa0adb68b6
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Decoration/FlagPost.prefab
-  uploadId: 578252

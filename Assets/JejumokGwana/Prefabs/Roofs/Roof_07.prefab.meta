@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 61e4e49f3606f954180452501ee90b66
+guid: ec2247eaff8e04f398fa574537b6c7d8
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Roofs/Roof_07.prefab
-  uploadId: 578252

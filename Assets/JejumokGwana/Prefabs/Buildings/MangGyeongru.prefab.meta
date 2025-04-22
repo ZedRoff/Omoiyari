@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 1692ad8694cfb0b4b8c7b0af58b1b0c2
+guid: c61557fc79177418fae808da570a52d2
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Buildings/MangGyeongru.prefab
-  uploadId: 578252

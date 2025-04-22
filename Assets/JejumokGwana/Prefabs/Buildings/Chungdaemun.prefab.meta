@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 132fdfc6e724a49459d8ec004b941916
+guid: db773ecd116434de0a305d2abee3c4fd
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Buildings/Chungdaemun.prefab
-  uploadId: 578252

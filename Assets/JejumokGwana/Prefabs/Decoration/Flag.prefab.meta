@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: ad2b463b16dae0f46b59414886b61fae
+guid: 5d39bded948cf44a88cde5ba3dfb7536
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Decoration/Flag.prefab
-  uploadId: 578252

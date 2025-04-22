@@ -1,14 +1,7 @@
 fileFormatVersion: 2
-guid: 94bd7c0b55a9e3a4b81aec44a051772d
+guid: 575d5607dff784a728b510cef740d473
 PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 251450
-  packageName: Jejumok Gwana
-  packageVersion: 1.0
-  assetPath: Assets/JejumokGwana/Prefabs/Building_Walls/WallSetC.prefab
-  uploadId: 578252
