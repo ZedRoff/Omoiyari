@@ -521,6 +521,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a157b0551c2d5401ba2e20faf3be1e2b, type: 2}
+    - target: {fileID: -4154347044245604629, guid: f4f22135f292f4ab0b554cae5a37c52a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.14222
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f4f22135f292f4ab0b554cae5a37c52a, type: 3}
       propertyPath: m_Name
       value: JapaneseClassroom
