@@ -6,7 +6,7 @@ using System.Collections;
 public class LoadingScene : MonoBehaviour
 {
     public Slider loadingBar;
-    public string sceneToLoad = "NomDeLaScene"; // Remplace par ta scène cible
+    private string sceneToLoad = "Main_Scene"; // Remplace par ta scène cible
     public float minLoadTime = 5f; // Durée minimum d'affichage de la barre de chargement
 
     void Start()
