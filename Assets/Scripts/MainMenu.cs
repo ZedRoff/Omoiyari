@@ -1,22 +1,45 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
+    public AudioClip clickSound;
+    private AudioSource audioSource;
+    public int delayBeforeLoad = 3;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void NewGame()
     {
-        SceneManager.LoadScene("NomDeTaSceneJeu");
+        audioSource.PlayOneShot(clickSound);
+        StartCoroutine(LoadSceneAfterDelay("LoadingScene"));
     }
 
     public void Options()
     {
-        // À ouvrir via un panneau UI
+        audioSource.PlayOneShot(clickSound);
         Debug.Log("Menu options");
     }
 
     public void QuitGame()
     {
+        audioSource.PlayOneShot(clickSound);
+        StartCoroutine(QuitAfterDelay());
+    }
+
+    private IEnumerator LoadSceneAfterDelay(string sceneName)
+    {
+        yield return new WaitForSeconds(delayBeforeLoad);
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private IEnumerator QuitAfterDelay()
+    {
+        yield return new WaitForSeconds(delayBeforeLoad);
         Application.Quit();
-        Debug.Log("Quitter le jeu");
     }
 }
