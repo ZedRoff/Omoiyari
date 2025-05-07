@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
     public void Options()
     {
         audioSource.PlayOneShot(clickSound);
-        Debug.Log("Menu options");
+        StartCoroutine(LoadSceneAfterDelay("Menu options"));
     }
 
     public void QuitGame()
