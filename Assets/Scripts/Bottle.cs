@@ -6,7 +6,7 @@ public class Bottle : MonoBehaviour
 
     public void OnSelected()
     {
-        GameManager.Instance.AddChemical(chemicalName);
-        Debug.Log("Flacon ajouté : " + chemicalName);
+        /*GameObject.Instance.AddChemical(chemicalName);
+        Debug.Log("Flacon ajouté : " + chemicalName);*/
     }
 }
