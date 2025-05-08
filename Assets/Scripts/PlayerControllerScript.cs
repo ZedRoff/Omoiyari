@@ -14,13 +14,12 @@ public class MouseLookMovement : MonoBehaviour
     public InventoryScript inventoryScript;
     public ItemsList itemsList;
 
-
     public float mouseSensitivity = 100f;
-    public Transform playerBody;      // The object that should rotate horizontally (usually the player GameObject)
-    public Transform cameraTransform; // The camera or the object that rotates vertically
+    public Transform playerBody;      
+    public Transform cameraTransform; 
 
     float xRotation = 0f;
-
+    public StateScript stateScript;
     void Start()
     {
         textScript = GameObject.Find("Text Manager").GetComponent<TextScript>();
@@ -28,6 +27,7 @@ public class MouseLookMovement : MonoBehaviour
         itemsList = GameObject.Find("Items Manager").GetComponent<ItemsList>();
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
+        stateScript = GameObject.Find("State Manager").GetComponent<StateScript>();
     }
  
     void OnCollisionEnter(Collision collision)
@@ -50,7 +50,7 @@ public class MouseLookMovement : MonoBehaviour
     }
     void Update()
     {
-        if (textScript.IsInDialog() || inventoryScript.isShowPanel) return;
+        if (stateScript.state != State.Play) return;
        
         HandleShift();
 
@@ -66,7 +66,7 @@ public class MouseLookMovement : MonoBehaviour
  
       void FixedUpdate()
     {
-         if (textScript.IsInDialog() || inventoryScript.isShowPanel) return;
+         if (stateScript.state != State.Play) return;
         MovePlayer(); 
     }
     void HandleShift()

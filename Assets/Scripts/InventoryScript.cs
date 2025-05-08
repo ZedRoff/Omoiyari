@@ -8,12 +8,14 @@ public class InventoryScript : MonoBehaviour
     public bool isShowPanel;
 
     public GameObject items;
+    public StateScript stateScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
         inventoryPanel.SetActive(false);
         player = GameObject.Find("Game Manager").GetComponent<GameScript>().GetPlayer();
+        stateScript = GameObject.Find("State Manager").GetComponent<StateScript>();
       
     }
 
@@ -27,7 +29,14 @@ public class InventoryScript : MonoBehaviour
             isShowPanel = !isShowPanel;
 
             if(isShowPanel) {
-              
+                stateScript.state = State.Inventory;
+
+            } else {
+                stateScript.state = State.Play;
+            }
+
+            if(isShowPanel) {
+            
                for(int i=0;i<player.inventory.GetCount();i++) {
                 Item currentItem = player.inventory.items[i];
                 Transform slot = items.transform.GetChild(i);

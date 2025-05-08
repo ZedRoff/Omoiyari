@@ -21,13 +21,13 @@ public class MainMenu : MonoBehaviour
 
     public void Options()
     {
-        audioSource.PlayOneShot(clickSound);
+        //audioSource.PlayOneShot(clickSound);
         StartCoroutine(LoadSceneAfterDelay("Menu options"));
     }
 
     public void QuitGame()
     {
-        audioSource.PlayOneShot(clickSound);
+        //audioSource.PlayOneShot(clickSound);
         StartCoroutine(QuitAfterDelay());
     }
 

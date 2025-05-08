@@ -13,7 +13,7 @@ public class CollisionScript : MonoBehaviour
     {
         if(other.CompareTag("Player") && stateScript.state == State.PreGame) {
             if(gameObject.CompareTag("Start Collider")) {
-                stateScript.state = State.Start;
+                stateScript.state = State.StartDialog;
             }
         }
     }

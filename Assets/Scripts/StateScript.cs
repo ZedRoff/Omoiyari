@@ -7,7 +7,7 @@ public class StateScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        state = State.PreGame;
+        state = State.Play;
          textScript = GameObject.Find("Text Manager").GetComponent<TextScript>();  
     }
 
@@ -16,7 +16,7 @@ public class StateScript : MonoBehaviour
     {
         switch (state) 
         {
-            case State.Start:
+            case State.StartDialog:
                 string[][] texts = new string[][]{
                 new string[] { "Ford Benson ", "Ah, te voilà enfin réveillé... Luis Arcana. Ou devrais-je dire, 'volontaire numéro un' ?"},
                 new string[] { "Ford Benson ", "Je suppose que tes collègues t'ont bien expliqué le principe de leur jouet ? Plonger dans un monde imaginaire, ressentir des émotions, des sensations... Sauf que, visiblement, ils ont oublié de te prévoir un billet retour." },
@@ -28,12 +28,10 @@ public class StateScript : MonoBehaviour
 
             };
             textScript.StartDialog(texts);
-            state = State.WaitForTuto;
+            state = State.Play;
             break;
           
-            case State.Pending:
-                Debug.Log("pending state");
-            break;
+            
          
         }
     }

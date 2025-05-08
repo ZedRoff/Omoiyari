@@ -1,6 +1,9 @@
 public enum State {
     PreGame,
-    WaitForTuto,
-    Start,
-    Pending
+    Play,
+    Inventory,
+    Pause,
+    End,
+    Options,
+    StartDialog,
 }
