@@ -1,14 +1,23 @@
-using Unity.Properties;
+
 using UnityEngine;
 
 public class GameScript : MonoBehaviour
 {
 
-    public StateScript stateScript;
+
+    public Player player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+ void Awake()
+{
+    player = new Player();
+}
     void Start()
     {
-        stateScript = GameObject.Find("State Manager").GetComponent<StateScript>();   
+       
+    }
+    public Player GetPlayer() {
+        return player;
     }
     
 

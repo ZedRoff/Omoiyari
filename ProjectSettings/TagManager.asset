@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bulle
   - Start Collider
+  - Ground
+  - Collectible
   layers:
   - Default
   - TransparentFX
