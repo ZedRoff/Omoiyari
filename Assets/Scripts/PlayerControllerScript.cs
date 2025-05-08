@@ -11,8 +11,6 @@ public class MouseLookMovement : MonoBehaviour
     public TextScript textScript;
     public bool isOnGround;
     public Transform cameraCine;
-    public InventoryScript inventoryScript;
-    public ItemsList itemsList;
 
     public float mouseSensitivity = 100f;
     public Transform playerBody;      
@@ -23,8 +21,6 @@ public class MouseLookMovement : MonoBehaviour
     void Start()
     {
         textScript = GameObject.Find("Text Manager").GetComponent<TextScript>();
-        inventoryScript = GameObject.Find("Inventory Manager").GetComponent<InventoryScript>();
-        itemsList = GameObject.Find("Items Manager").GetComponent<ItemsList>();
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         stateScript = GameObject.Find("State Manager").GetComponent<StateScript>();
@@ -36,18 +32,7 @@ public class MouseLookMovement : MonoBehaviour
             isOnGround = true;
         }
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Collectible")) {
-            string itemName = other.gameObject.name;
-            if(itemsList.items.ContainsKey(itemName)) {
-                Item item = itemsList.items[itemName];
-                inventoryScript.player.inventory.AddItem(item);
-                Debug.Log("Picked up: " + item.itemName);
-                Destroy(other.gameObject);
-            }
-        }
-    }
+  
     void Update()
     {
         if (stateScript.state != State.Play) return;

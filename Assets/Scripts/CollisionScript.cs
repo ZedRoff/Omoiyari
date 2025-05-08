@@ -11,9 +11,10 @@ public class CollisionScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player") && stateScript.state == State.PreGame) {
+        if(other.CompareTag("Player")) {
             if(gameObject.CompareTag("Start Collider")) {
                 stateScript.state = State.StartDialog;
+                Destroy(other);
             }
         }
     }

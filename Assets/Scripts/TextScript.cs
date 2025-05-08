@@ -7,6 +7,7 @@ public class TextScript : MonoBehaviour
     public TextMeshProUGUI bulle;
     public GameObject boxBulle;
     public GameObject buttonX;
+    public StateScript stateScript;
 
     private bool isTyping = false;
     private int dialogIndex = 0;
@@ -15,6 +16,7 @@ public class TextScript : MonoBehaviour
 
     void Start()
     {
+        stateScript = GameObject.Find("State Manager").GetComponent<StateScript>();
        boxBulle.SetActive(false);
        buttonX.SetActive(false);
       
@@ -54,7 +56,7 @@ public class TextScript : MonoBehaviour
     }
     void CloseBulle()
     {
-        Debug.Log("passage");
+        stateScript.state = State.Play;
         StopAllCoroutines();
         isTyping = false;
         bulle.text = "";

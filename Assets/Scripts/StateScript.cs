@@ -28,7 +28,7 @@ public class StateScript : MonoBehaviour
 
             };
             textScript.StartDialog(texts);
-            state = State.Play;
+          
             break;
           
             
