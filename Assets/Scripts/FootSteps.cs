@@ -19,7 +19,7 @@ public class FootSteps : MonoBehaviour
     {
         if(playerControllerScript.isMoving) {
             if(playerControllerScript.isRunning) {
-                stepRate = 0.25f;
+                stepRate = 0.35f;
             } else {
                 stepRate = 0.5f;
             }
