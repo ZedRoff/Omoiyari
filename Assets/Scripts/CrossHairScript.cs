@@ -18,6 +18,8 @@ public class CrossHairScript : MonoBehaviour
     private float scaledSize = 12.0f;
     public Image holdPoint;
     public GameScript gameScript;
+      public ActionsScript actionsScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,6 +27,7 @@ public class CrossHairScript : MonoBehaviour
         inventoryScript = GameObject.Find("Inventory Manager").GetComponent<InventoryScript>();
         itemsList = GameObject.Find("Items Manager").GetComponent<ItemsList>();
         gameScript = GameObject.Find("Game Manager").GetComponent<GameScript>();
+         actionsScript = GameObject.Find("Actions Manager").GetComponent<ActionsScript>(); 
     }
 
     // Update is called once per frame
@@ -49,6 +52,7 @@ public class CrossHairScript : MonoBehaviour
                 gameScript.ChangeCurrentItem(item);
                
                 Debug.Log("Picked up: " + item.itemName);
+                actionsScript.RemoveTask("Trouvez la clé");
                 Destroy(hit.collider.gameObject);
             }
                 }
@@ -62,9 +66,10 @@ public class CrossHairScript : MonoBehaviour
                 if(Input.GetKeyUp(KeyCode.R)) {
                      
                     if(hit.collider.name == "Door") {
-                        if(gameScript.player.currentItem.itemName != "Clé") {
+                        if(gameScript.player.currentItem.itemName == "Clé") {
                             hit.collider.gameObject.GetComponent<Door>().OpenDoor();
                             gameScript.player.inventory.RemoveItem(gameScript.player.currentItem);
+                            actionsScript.RemoveTask("Ouvrir la porte");
                         }
                     }
 
