@@ -13,7 +13,10 @@ public class ItemsList : MonoBehaviour
     {
         items = new Dictionary<string, Item>();
         items.Add("Clé", new Item("Clé", "Une simple clé", keySprite, true));
-        items.Add("Becher", new Item("Becher", "Un becher qui peut accueillir une substance", becherSprite, true));
+        items.Add("Sulfate de cuivre", new Item("Sulfate de cuivre", "Un composé chimique ionique", becherSprite, true));
+        items.Add("Bisulfite de sodium", new Item("Bisulfite de sodium", "Un sel issu de la neutralisation partielle de l'acide sulfurique", becherSprite, true));
+        items.Add("Bicarbonate de sodium", new Item("Bicarbonate de sodium", "Un composé inorganique", becherSprite, true));
+        items.Add("Hydroxyde de sodium", new Item("Hydroxyde de sodium", "Une solution transparente encore plus corrosive qu'à l'état pur en raison de son aspect mouillant, qui augmente l'action et le contact avec la peau.", becherSprite, true));
         items.Add("Aucun", new Item("Aucun", "aucun item", defaultSprite, false));
     }
 
