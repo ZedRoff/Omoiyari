@@ -8,6 +8,8 @@ TagManager:
   - Start Collider
   - Ground
   - Collectible
+  - Door
+  - Interactable
   layers:
   - Default
   - TransparentFX

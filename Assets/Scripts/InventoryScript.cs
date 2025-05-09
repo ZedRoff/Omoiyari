@@ -30,13 +30,15 @@ public class InventoryScript : MonoBehaviour
 
             if(isShowPanel) {
                 stateScript.state = State.Inventory;
+        Cursor.lockState = CursorLockMode.None;
 
             } else {
                 stateScript.state = State.Play;
+        Cursor.lockState = CursorLockMode.Locked;
             }
 
             if(isShowPanel) {
-            
+           
                for(int i=0;i<player.inventory.GetCount();i++) {
                 Item currentItem = player.inventory.items[i];
                 Transform slot = items.transform.GetChild(i);
