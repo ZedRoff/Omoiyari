@@ -17,7 +17,9 @@ public class MouseLookMovement : MonoBehaviour
     public Transform cameraTransform; 
 
     float xRotation = 0f;
-    public StateScript stateScript;
+    public StateScript stateScript; 
+    public bool isMoving;
+    public bool isRunning;
     void Start()
     {
         textScript = GameObject.Find("Text Manager").GetComponent<TextScript>();
@@ -56,8 +58,17 @@ public class MouseLookMovement : MonoBehaviour
     }
     void HandleShift()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift)) moveSpeed = acceleration;
-        if (Input.GetKeyUp(KeyCode.LeftShift)) moveSpeed = 2.5f;
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            
+            moveSpeed = acceleration;
+            isRunning = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            
+            moveSpeed = 2.5f;
+            isRunning = false;
+
+        }
     }
 
    
@@ -65,10 +76,9 @@ void MovePlayer()
 {
     float horizontal = Input.GetAxis("Horizontal");
     float vertical = Input.GetAxis("Vertical");
-
-    Vector3 move = (transform.right * horizontal + transform.forward * vertical).normalized * moveSpeed * Time.deltaTime;
-
-    transform.position += move;
+    isMoving = Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
+Vector3 move = (transform.right * horizontal + transform.forward * vertical).normalized * moveSpeed;
+rb.MovePosition(rb.position + move * Time.fixedDeltaTime);
 }
 
   
