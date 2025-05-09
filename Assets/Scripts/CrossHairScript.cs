@@ -52,7 +52,7 @@ public class CrossHairScript : MonoBehaviour
                 gameScript.ChangeCurrentItem(item);
                
                 Debug.Log("Picked up: " + item.itemName);
-                actionsScript.RemoveTask("Trouvez la clé");
+                actionsScript.FinishTask("Trouvez la clé");
                 Destroy(hit.collider.gameObject);
             }
                 }
@@ -69,7 +69,7 @@ public class CrossHairScript : MonoBehaviour
                         if(gameScript.player.currentItem.itemName == "Clé") {
                             hit.collider.gameObject.GetComponent<Door>().OpenDoor();
                             gameScript.player.inventory.RemoveItem(gameScript.player.currentItem);
-                            actionsScript.RemoveTask("Ouvrir la porte");
+                actionsScript.FinishTask("Ouvrir la porte");
                         }
                     }
 

@@ -13,11 +13,9 @@ public class ActionsScript : MonoBehaviour
       public GameObject part;
       public Transform actionsParent;
       public TextMeshProUGUI checkText;
-    private VerticalLayoutGroup layoutGroup;
     void Start()
     {
          checkText = GameObject.Find("CheckText").GetComponent<TextMeshProUGUI>();
-        layoutGroup = actionsParent.GetComponent<VerticalLayoutGroup>();
 
     }
 
@@ -31,8 +29,6 @@ public class ActionsScript : MonoBehaviour
         
         button.GetComponent<Image>().color = state ? new Color(0,1,0) : new Color(1,0,0);
         label.text = name;
-        layoutGroup.enabled = false;  // Temporarily disable the layout group to apply custom adjustments
-        layoutGroup.enabled = true;   // Re-enable to adjust layout after the new element is added
 
         UpdateProgress();
     }
@@ -54,6 +50,22 @@ int doneTasks = 0;
     public void FinishTask(string name) {
         if(!tasks.ContainsKey(name)) return;
         tasks[name] = true;
+
+         foreach (Transform child in actionsParent) {
+        TextMeshProUGUI label = child.GetComponentInChildren<TextMeshProUGUI>();
+        if (label != null && label.text == name) {
+            label.fontStyle = FontStyles.Strikethrough;
+
+            Button button = child.GetComponentInChildren<Button>();
+            if (button != null) {
+                button.GetComponent<Image>().color = new Color(0, 1, 0); 
+            }
+
+            break;
+        }
+    }
+
+    UpdateProgress();
     }
     public void FlushTasks() {
         tasks.Clear();

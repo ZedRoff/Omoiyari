@@ -7,17 +7,19 @@ public class FootSteps : MonoBehaviour
     public float timer;
     public MouseLookMovement playerControllerScript;
     public float stepRate;
+    public StateScript stateScript;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         playerControllerScript = GetComponent<MouseLookMovement>();
+        stateScript = GameObject.Find("State Manager").GetComponent<StateScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerControllerScript.isMoving) {
+        if(playerControllerScript.isMoving && stateScript.state == State.Play) {
             if(playerControllerScript.isRunning) {
                 stepRate = 0.35f;
             } else {
