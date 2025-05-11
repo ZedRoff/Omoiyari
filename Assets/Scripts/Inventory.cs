@@ -26,4 +26,12 @@ public class Inventory
     public Item GetItem(int index) {
         return items[index];
     }
+    public bool HasItem(string itemName)
+    {
+        for(int i=0;i<items.Count;i++)
+        {
+            if (items[i].itemName == itemName) return true;
+        }
+        return false;
+    }
 }

@@ -23,7 +23,10 @@ public class QuizManager : MonoBehaviour
     {
         quizPanel.SetActive(false);
     }
-
+    public string GetCode()
+    {
+        return "ab26";
+    }
     public void StartQuiz()
     {
         currentQuestionIndex = 0;

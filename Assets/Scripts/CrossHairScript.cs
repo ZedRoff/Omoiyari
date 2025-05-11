@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+using System.Linq;
 using DoorScript;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +20,11 @@ public class CrossHairScript : MonoBehaviour
     private float scaledSize = 12.0f;
     public Image holdPoint;
     public GameScript gameScript;
-      public ActionsScript actionsScript;
+    public ActionsScript actionsScript;
+
+    public List<string> contenus = new List<string>();
+    public Color bonneCouleur;
+    public Color mauvaiseCouleur;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +34,11 @@ public class CrossHairScript : MonoBehaviour
         itemsList = GameObject.Find("Items Manager").GetComponent<ItemsList>();
         gameScript = GameObject.Find("Game Manager").GetComponent<GameScript>();
          actionsScript = GameObject.Find("Actions Manager").GetComponent<ActionsScript>(); 
+    }
+
+    public void VerserDansBecher(string itemName)
+    {
+            contenus.Add(itemName);
     }
 
     // Update is called once per frame
@@ -40,7 +51,7 @@ public class CrossHairScript : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
-            if (hit.collider.CompareTag("Collectible"))
+            if (hit.collider.CompareTag("Collectible") && (gameScript.player.inventory.HasItem("Bag") || hit.collider.gameObject.name == "Bag"))
             {
                 if(Input.GetKeyUp(KeyCode.E)) {
                     string itemName = hit.collider.gameObject.name;
@@ -49,11 +60,17 @@ public class CrossHairScript : MonoBehaviour
             if(itemsList.items.ContainsKey(itemName)) {
                 Item item = itemsList.items[itemName];
                 inventoryScript.player.inventory.AddItem(item);
-                gameScript.ChangeCurrentItem(item);
+                        if(item.usable)
+                        {
+                            gameScript.ChangeCurrentItem(item);
+                        }
                
                 Debug.Log("Picked up: " + item.itemName);
-                actionsScript.FinishTask("Trouvez la clé");
-                Destroy(hit.collider.gameObject);
+                        if(item.itemName == "Clé")
+                        {
+                            actionsScript.FinishTask("Trouvez la clé");
+                        }
+               // Destroy(hit.collider.gameObject);
             }
                 }
                 crossHair.sprite = EKeyImage;
@@ -64,12 +81,23 @@ public class CrossHairScript : MonoBehaviour
 
 
                 if(Input.GetKeyUp(KeyCode.R)) {
-                     
+                     if(hit.collider.name == "Becher")
+                    {
+                        string playerCurrentItemName = gameScript.player.currentItem.itemName;
+                        VerserDansBecher(playerCurrentItemName);
+
+                        if(contenus.Count == 2)
+                        {
+
+                        }
+                        
+                       
+                    }
                     if(hit.collider.name == "Door") {
                         if(gameScript.player.currentItem.itemName == "Clé") {
                             hit.collider.gameObject.GetComponent<Door>().OpenDoor();
                             gameScript.player.inventory.RemoveItem(gameScript.player.currentItem);
-                actionsScript.FinishTask("Ouvrir la porte");
+                            actionsScript.FinishTask("Ouvrir la porte");
                         }
                     }
 
@@ -90,5 +118,19 @@ public class CrossHairScript : MonoBehaviour
              crossHair.sprite = defaultImage;
              crossHair.rectTransform.sizeDelta = new Vector3(defaultSize, defaultSize, defaultSize);
         }
+    }
+
+    public bool CheckMix()
+    {
+        string[] good = { "aOHN", "Cu504" };
+        bool rightMix = true;
+        foreach (string item in contenus)
+        {
+            if (!good.Contains(item))
+            {
+                rightMix = false;
+            }
+        }
+        return rightMix;
     }
 }

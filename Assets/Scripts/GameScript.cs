@@ -31,12 +31,9 @@ public class GameScript : MonoBehaviour
         optionsMenu = GameObject.Find("Option Menu");
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
-        //ChangeCurrentItem(itemsList.items["Aucun"]);
-
-
-
-
-
+        ChangeCurrentItem(itemsList.items["Aucun"]);
+        player.inventory.AddItem(itemsList.items["Bag"]);
+        player.inventory.AddItem(itemsList.items["Book"]);
     }
   
     

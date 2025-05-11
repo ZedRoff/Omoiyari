@@ -12,7 +12,6 @@ public class InventoryScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
         inventoryPanel.SetActive(false);
         player = GameObject.Find("Game Manager").GetComponent<GameScript>().GetPlayer();
         stateScript = GameObject.Find("State Manager").GetComponent<StateScript>();
@@ -23,9 +22,9 @@ public class InventoryScript : MonoBehaviour
     void Update()
     {
 
-       if (Input.GetKeyUp(KeyCode.Tab))
+       if (Input.GetKeyUp(KeyCode.Tab) && player.inventory.HasItem("Bag"))
         {
-
+         
             isShowPanel = !isShowPanel;
 
             if(isShowPanel) {
@@ -39,8 +38,9 @@ public class InventoryScript : MonoBehaviour
 
             if(isShowPanel) {
            
-               for(int i=0;i<player.inventory.GetCount();i++) {
+               for(int i=1;i<player.inventory.GetCount();i++) {
                 Item currentItem = player.inventory.items[i];
+                   if (currentItem.itemName == "Bag") continue; // just in case
                 Transform slot = items.transform.GetChild(i);
                 Image itemImage = slot.GetComponentInChildren<Image>();
                 TextMeshProUGUI itemText = slot.GetComponentInChildren<TextMeshProUGUI>();
@@ -50,7 +50,6 @@ public class InventoryScript : MonoBehaviour
                itemText.text = currentItem.itemName;
                }
             }
-
             inventoryPanel.SetActive(isShowPanel);
         }
     }

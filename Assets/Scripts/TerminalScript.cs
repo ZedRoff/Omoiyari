@@ -5,10 +5,12 @@ public class TerminalScript : MonoBehaviour
 {
     public TMP_InputField inputField;
     public TextMeshProUGUI feedbackText;
+    public QuizManager quizManager;
     //public QuizManagerCodeMode quizManager;
 
     public void SubmitCode()
     {
+        GameObject.Find("Quiz Manager").GetComponent<QuizManager>();
         string playerCode = inputField.text;
         string correctCode = quizManager.GetCode();
 

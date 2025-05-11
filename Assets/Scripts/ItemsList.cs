@@ -8,15 +8,21 @@ public class ItemsList : MonoBehaviour
     public Sprite keySprite;
     public Sprite becherSprite;
     public Sprite defaultSprite;
-       public Dictionary<string, Item> items;
+    public Sprite bookSprite;
+    public Dictionary<string, Item> items;
     void Start()
     {
+       
         items = new Dictionary<string, Item>();
-        items.Add("Clé", new Item("Clé", "Une simple clé", keySprite, true));
-        items.Add("Sulfate de cuivre", new Item("Sulfate de cuivre", "Un composé chimique ionique", becherSprite, true));
-        items.Add("Bisulfite de sodium", new Item("Bisulfite de sodium", "Un sel issu de la neutralisation partielle de l'acide sulfurique", becherSprite, true));
-        items.Add("Bicarbonate de sodium", new Item("Bicarbonate de sodium", "Un composé inorganique", becherSprite, true));
+        items.Add("Clé", new Item("Clé", "Une simple clé", keySprite, true)); // fait
+        items.Add("Cu504", new Item("Cu504", "Un composé chimique ionique", becherSprite, true)); // fait
+        items.Add("Bisulfite de sodium", new Item("Bisulfite de sodium", "Un sel issu de la neutralisation partielle de l'acide sulfurique", becherSprite, true)); // fait (bad)
+        items.Add("NAHGO3", new Item("NAHGO3", "Un composé inorganique", becherSprite, true));
         items.Add("Hydroxyde de sodium", new Item("Hydroxyde de sodium", "Une solution transparente encore plus corrosive qu'à l'état pur en raison de son aspect mouillant, qui augmente l'action et le contact avec la peau.", becherSprite, true));
+        items.Add("Cu2O", new Item("Cu2O", "Un composé de l'oxygène et du cuivre.", becherSprite, true)); // Cu2O
+
+        items.Add("Book", new Item("Book", "Un livre de chimie", bookSprite, true));
+        items.Add("Bag", new Item("Bag", "Votre inventaire", defaultSprite, false));
         items.Add("Aucun", new Item("Aucun", "aucun item", defaultSprite, false));
     }
 

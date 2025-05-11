@@ -28,8 +28,8 @@ public class StateScript : MonoBehaviour
 
             };
             textScript.StartDialog(texts);
-          
             break;
+           
           
             
          

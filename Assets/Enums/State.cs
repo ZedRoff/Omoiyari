@@ -6,4 +6,5 @@ public enum State {
     End,
     Options,
     StartDialog,
+    InBook
 }
