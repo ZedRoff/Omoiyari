@@ -29,10 +29,33 @@ public class StateScript : MonoBehaviour
             };
             textScript.StartDialog(texts);
             break;
-           
-          
-            
-         
+            case State.StartBecherAlreadyDialog:
+                string[][] texts2 = new string[][]{
+                     new string[] { "Prof.", "Note le résultat au fond de la salle"},
+
+                };
+                textScript.StartDialog(texts2);
+                break;
+            case State.NotAllowedToAnswer:
+                string[][] texts3 = new string[][]{
+                     new string[] { "Prof.", "Fait d'abord l'expérience sur le becher"},
+
+                };
+                textScript.StartDialog(texts3);
+                break;
+            case State.StartChemistryDialog:
+                string[][] texts4 = new string[][]{
+                    new string[] {
+                        "Ford", "Ici, tu vas vivre ton premier handicap à tester, je te laisse découvrir"
+                    }
+                };
+                textScript.StartDialog(texts4);
+                break;
+
+
+
+
+
         }
     }
 }

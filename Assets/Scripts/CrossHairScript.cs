@@ -54,10 +54,7 @@ public class CrossHairScript : MonoBehaviour
         ingredients.Add(itemsList.items["NAHGO3"].itemName);
         ingredients.Add(itemsList.items["Cu2O"].itemName);
 
-        foreach (string item in ingredients)
-        {
-            gameScript.player.inventory.AddItem(itemsList.items[item]);
-        }
+        
     }
 
     public void VerserDansBecher(string itemName)
@@ -85,10 +82,12 @@ public class CrossHairScript : MonoBehaviour
                 rend.material = mauvaiseCouleur;
             }
         }
+        gameScript.isAllowedToAnswerChemistry = true;
     }
 
     void ResetMelange()
     {
+        gameScript.isAllowedToAnswerChemistry = false;
         statusText.text = "Ajouter le mélange";
         Renderer rend = becher.GetComponent<Renderer>(); 
         rend.material = videCouleur;
@@ -131,11 +130,26 @@ public class CrossHairScript : MonoBehaviour
                
             } else if(hit.collider.CompareTag("Interactable")) {
 
-                if(hit.collider.name == "ResultColor")
+                if(Input.GetKeyUp(KeyCode.R) && hit.collider.name == "ResultColor" && !gameScript.isAllowedToAnswerChemistry)
                 {
-                    colorsMenu.SetActive(true);
+                    gameScript.stateScript.state = State.NotAllowedToAnswer;
+                    return;
+                }
+                if(hit.collider.name == "ResultColor" && gameScript.isAllowedToAnswerChemistry)
+                {
+                    if (Input.GetKeyUp(KeyCode.R))
+                    {
+                        colorsMenu.SetActive(true);
+                        gameScript.stateScript.state = State.ColorMenu;
+                        Cursor.lockState = CursorLockMode.None;
+                    }
                 }
 
+                if(hit.collider.name == "Becher" && gameScript.isAllowedToAnswerChemistry && Input.GetKeyUp(KeyCode.R))
+                {
+                    gameScript.stateScript.state = State.StartBecherAlreadyDialog;
+                    return;
+                }
 
                 if (hit.collider.name == "Becher")
                 {
@@ -155,10 +169,11 @@ public class CrossHairScript : MonoBehaviour
                         string playerCurrentItemName = gameScript.player.currentItem.itemName;
                         if (!ingredients.Contains(playerCurrentItemName)) return;
                         VerserDansBecher(playerCurrentItemName);
-                        statusText.text = string.Join(" + ", contenus);
-                      
-                        
-                       
+                        var groupedContents = contenus
+     .GroupBy(item => item)
+     .Select(group => $"{group.Count()}{group.Key}");
+
+                        statusText.text = string.Join(" + ", groupedContents);
                     }
                     if(hit.collider.name == "Door") {
                         if(gameScript.player.currentItem.itemName == "Clé") {
