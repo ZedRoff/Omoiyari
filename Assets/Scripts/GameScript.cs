@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using System.Collections.Generic;
 public class GameScript : MonoBehaviour
 {
 
@@ -17,6 +17,9 @@ public class GameScript : MonoBehaviour
     public GameObject playerObject;
     public Image holdPoint;
     public ItemsList itemsList;
+
+
+    public InventoryScript inventoryScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
  void Awake()
@@ -29,11 +32,15 @@ public class GameScript : MonoBehaviour
         stateScript = GameObject.Find("State Manager").GetComponent<StateScript>();
         pauseMenu = GameObject.Find("Pause Menu");
         optionsMenu = GameObject.Find("Option Menu");
+        inventoryScript = GameObject.Find("Inventory Manager").GetComponent<InventoryScript>();
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
         ChangeCurrentItem(itemsList.items["Aucun"]);
         player.inventory.AddItem(itemsList.items["Bag"]);
         player.inventory.AddItem(itemsList.items["Book"]);
+
+    
+
     }
   
     
@@ -41,8 +48,7 @@ public class GameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
+ 
      if(Input.GetKeyUp(KeyCode.Escape)) {
           if(isShowOptions) {
                 CloseOptionsMenu();
@@ -63,6 +69,10 @@ public class GameScript : MonoBehaviour
       public void ChangeCurrentItem(Item item) {
         player.currentItem = item;
          holdPoint.sprite = item.icon;
+        stateScript.state = State.Play;
+        Cursor.lockState = CursorLockMode.Locked;
+        inventoryScript.inventoryPanel.SetActive(false);
+
     }
     public void ChangeCurrentItemOnButtonClick(BaseEventData data) {
          PointerEventData pointerData = data as PointerEventData;

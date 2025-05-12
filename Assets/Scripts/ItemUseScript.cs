@@ -25,10 +25,6 @@ public class ItemUseScript : MonoBehaviour
         {
 
 
-        
-
-
-
 
             if(stateScript.state == State.InBook)
             {
