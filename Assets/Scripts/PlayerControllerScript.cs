@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MouseLookMovement : MonoBehaviour
 {
-    private float moveSpeed = 2.5f;
+    private float moveSpeed = 5.0f;
     private float acceleration = 5.0f;
 
     public Rigidbody rb;
@@ -12,7 +12,7 @@ public class MouseLookMovement : MonoBehaviour
     public bool isOnGround;
     public Transform cameraCine;
 
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = 200f;
     public Transform playerBody;      
     public Transform cameraTransform; 
 

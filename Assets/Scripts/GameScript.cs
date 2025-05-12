@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 public class GameScript : MonoBehaviour
 {
 
@@ -18,14 +19,27 @@ public class GameScript : MonoBehaviour
     public Image holdPoint;
     public ItemsList itemsList;
 
-
+    public GameObject chemistryCollider;
+    public GameObject resultColor;
     public InventoryScript inventoryScript;
+    public GameObject colorsMenu;
+
+    public AudioClip goodSound;
+    public AudioClip wrongSound;
+
+    public bool isAllowedToAnswerChemistry;
+
+
+    public bool hasFinishedChemistry;
+
+    public TimerScript timerScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
  void Awake()
 {
     player = new Player();
     itemsList = GameObject.Find("Items Manager").GetComponent<ItemsList>();
+       
 }
     void Start()
     {
@@ -38,13 +52,33 @@ public class GameScript : MonoBehaviour
         ChangeCurrentItem(itemsList.items["Aucun"]);
         player.inventory.AddItem(itemsList.items["Bag"]);
         player.inventory.AddItem(itemsList.items["Book"]);
+        timerScript = GameObject.Find("Timer Manager").GetComponent<TimerScript>();
 
-    
 
     }
-  
-    
 
+
+    public void ChangeSelectedColor(BaseEventData data)
+    {
+        PointerEventData pointerData = data as PointerEventData;
+        GameObject clickedObject = pointerData.pointerPress;
+
+        if(clickedObject.name != "rightImage")
+        {
+          resultColor.GetComponent<AudioSource>().PlayOneShot(wrongSound);
+            hasFinishedChemistry = true;
+
+        } else
+        {
+             resultColor.GetComponent<AudioSource>().PlayOneShot(goodSound);
+            chemistryCollider.GetComponent<BoxCollider>().isTrigger = true;
+        }
+        Cursor.lockState = CursorLockMode.Locked;
+        colorsMenu.SetActive(false);
+        isAllowedToAnswerChemistry = false;
+        stateScript.state = State.Play;
+
+    }
     // Update is called once per frame
     void Update()
     {

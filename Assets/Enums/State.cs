@@ -6,5 +6,9 @@ public enum State {
     End,
     Options,
     StartDialog,
+    ColorMenu,
+    StartBecherAlreadyDialog,
+    NotAllowedToAnswer,
+    StartChemistryDialog,
     InBook
 }
