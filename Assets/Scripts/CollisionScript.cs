@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CollisionScript : MonoBehaviour
 {
@@ -42,6 +43,16 @@ public class CollisionScript : MonoBehaviour
             stateScript.state = State.StartChemistryDialog;
             gameObject.GetComponent<BoxCollider>().isTrigger = false;
             gameScript.timerScript.StartTimer(5 * 60);
+        }
+        if(gameObject.name == "PlayGroundCollider" && !gameScript.hasFinishedPlayground)
+        {
+            stateScript.state = State.StartPlayGroundDialog;
+            gameObject.GetComponent<BoxCollider>().isTrigger = false;
+            gameScript.filter.ActivateDaltonism();
+            gameScript.timerScript.StartTimer(10 * 60);
+        }
+        {
+
         }
     }
     // Update is called once per frame

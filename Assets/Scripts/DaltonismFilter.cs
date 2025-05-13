@@ -10,12 +10,22 @@ public class DaltonismFilter : MonoBehaviour
     void Start()
     {
         // Activer seulement le premier profil au départ
+       // ActivateDaltonism();
+    }
+    public void ActivateDaltonism()
+    {
         for (int i = 0; i < profiles.Length; i++)
         {
             profiles[i].SetActive(i == 0);
         }
     }
-
+    public void DeActivateDaltonism()
+    {
+        for (int i = 0; i < profiles.Length; i++)
+        {
+            profiles[i].SetActive(false);
+        }
+    }
     void Update()
     {
         timer += Time.deltaTime;

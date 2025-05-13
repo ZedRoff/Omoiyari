@@ -52,6 +52,15 @@ public class StateScript : MonoBehaviour
                 textScript.StartDialog(texts4);
                 break;
 
+            case State.StartPlayGroundDialog:
+                string[][] texts5 = new string[][]{
+                    new string[] {
+                        "Ford", "Ici, tu vas vivre ton deuxième handicap, ha, ha, ha"
+                    }
+                };
+                textScript.StartDialog(texts5);
+                break;
+
 
 
 

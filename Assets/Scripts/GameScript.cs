@@ -20,6 +20,7 @@ public class GameScript : MonoBehaviour
     public ItemsList itemsList;
 
     public GameObject chemistryCollider;
+    public GameObject playgroundCollider;
     public GameObject resultColor;
     public InventoryScript inventoryScript;
     public GameObject colorsMenu;
@@ -31,8 +32,13 @@ public class GameScript : MonoBehaviour
 
 
     public bool hasFinishedChemistry;
+    public bool hasFinishedPlayground;
 
     public TimerScript timerScript;
+
+    public GameObject mainCamera;
+
+    public DaltonismFilter filter;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
  void Awake()
@@ -53,6 +59,8 @@ public class GameScript : MonoBehaviour
         player.inventory.AddItem(itemsList.items["Bag"]);
         player.inventory.AddItem(itemsList.items["Book"]);
         timerScript = GameObject.Find("Timer Manager").GetComponent<TimerScript>();
+        mainCamera = GameObject.Find("FollowCam");
+        filter = GameObject.Find("DaltonismManager").GetComponent<DaltonismFilter>();
 
 
     }
@@ -66,12 +74,14 @@ public class GameScript : MonoBehaviour
         if(clickedObject.name != "rightImage")
         {
           resultColor.GetComponent<AudioSource>().PlayOneShot(wrongSound);
-            hasFinishedChemistry = true;
+          
 
         } else
         {
              resultColor.GetComponent<AudioSource>().PlayOneShot(goodSound);
             chemistryCollider.GetComponent<BoxCollider>().isTrigger = true;
+            hasFinishedChemistry = true;
+            timerScript.StopTimer();
         }
         Cursor.lockState = CursorLockMode.Locked;
         colorsMenu.SetActive(false);

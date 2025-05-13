@@ -10,9 +10,11 @@ public class TimerScript : MonoBehaviour
     public TextMeshProUGUI timer;
 
     private Coroutine currentTimer;
+    public GameScript gameScript;
     void Start()
     {
         timer.gameObject.SetActive(false);
+        gameScript = GameObject.Find("Game Manager").GetComponent<GameScript>();
     }
 
     IEnumerator Timer()
@@ -30,6 +32,7 @@ public class TimerScript : MonoBehaviour
             remainTime -= Time.deltaTime;
             yield return null;
         }
+
 
         timer.text = "00:00";
       

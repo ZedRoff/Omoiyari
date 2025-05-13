@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MouseLookMovement : MonoBehaviour
 {
-    private float moveSpeed = 5.0f;
+    private float moveSpeed = 10.0f;
     private float acceleration = 5.0f;
 
     public Rigidbody rb;
@@ -65,7 +65,7 @@ public class MouseLookMovement : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.LeftShift)) {
             
-            moveSpeed = 2.5f;
+            moveSpeed = 5.0f;
             isRunning = false;
 
         }

@@ -7,7 +7,7 @@ public class FresqueManager : MonoBehaviour
 
     void Start()
     {
-        tangramFresque.SetActive(false); // Caché au départ
+        tangramFresque.SetActive(true); // Caché au départ
     }
 
     void Update()
