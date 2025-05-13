@@ -41,15 +41,33 @@ public class CollisionScript : MonoBehaviour
         if (gameObject.name == "ChemistryCollider" && !gameScript.hasFinishedChemistry)
         {
             stateScript.state = State.StartChemistryDialog;
-            gameObject.GetComponent<BoxCollider>().isTrigger = false;
             gameScript.timerScript.StartTimer(5 * 60);
         }
         if(gameObject.name == "PlayGroundCollider" && !gameScript.hasFinishedPlayground)
         {
-            stateScript.state = State.StartPlayGroundDialog;
-            gameObject.GetComponent<BoxCollider>().isTrigger = false;
-            gameScript.filter.ActivateDaltonism();
-            gameScript.timerScript.StartTimer(10 * 60);
+
+            if (!gameScript.filter.playGroundStarted)
+            {
+                gameScript.filter.playGroundStarted = true;
+                stateScript.state = State.StartPlayGroundDialog;
+                gameScript.timerScript.StartTimer(10 * 60);
+                gameScript.filter.ActivateDaltonism();
+            } else
+            {
+                if (gameScript.filter.postProActivated)
+                {
+
+                    gameScript.filter.DeActivateDaltonism();
+                }
+                else
+                {
+
+                    gameScript.filter.ActivateDaltonism();
+                }
+            }
+
+               
+                
         }
         {
 

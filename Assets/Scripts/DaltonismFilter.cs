@@ -6,6 +6,8 @@ public class DaltonismFilter : MonoBehaviour
     private int current = 0;
     private float timer = 0f;
     public float interval = 30f;
+    public bool postProActivated;
+    public bool playGroundStarted;
 
     void Start()
     {
@@ -18,6 +20,7 @@ public class DaltonismFilter : MonoBehaviour
         {
             profiles[i].SetActive(i == 0);
         }
+        postProActivated = true;
     }
     public void DeActivateDaltonism()
     {
@@ -25,10 +28,11 @@ public class DaltonismFilter : MonoBehaviour
         {
             profiles[i].SetActive(false);
         }
+        postProActivated = false;
     }
     void Update()
     {
-        timer += Time.deltaTime;
+       /* timer += Time.deltaTime;
         if (timer >= interval)
         {
             // Désactiver tous les profils
@@ -40,6 +44,6 @@ public class DaltonismFilter : MonoBehaviour
             profiles[current].SetActive(true);
 
             timer = 0f;
-        }
+        }*/
     }
 }

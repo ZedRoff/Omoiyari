@@ -39,6 +39,7 @@ public class GameScript : MonoBehaviour
     public GameObject mainCamera;
 
     public DaltonismFilter filter;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
  void Awake()
@@ -81,7 +82,6 @@ public class GameScript : MonoBehaviour
              resultColor.GetComponent<AudioSource>().PlayOneShot(goodSound);
             chemistryCollider.GetComponent<BoxCollider>().isTrigger = true;
             hasFinishedChemistry = true;
-            timerScript.StopTimer();
         }
         Cursor.lockState = CursorLockMode.Locked;
         colorsMenu.SetActive(false);
