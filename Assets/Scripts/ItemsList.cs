@@ -11,6 +11,10 @@ public class ItemsList : MonoBehaviour
     public Sprite bookSprite;
     public Dictionary<string, Item> items;
     public Sprite purpleSprite;
+    public Sprite blueSprite;
+    public Sprite redSprite;
+    public Sprite yellowSprite;
+    public Sprite greenSprite;
     void Start()
     {
        
@@ -27,14 +31,16 @@ public class ItemsList : MonoBehaviour
         items.Add("Bag", new Item("Bag", "Votre inventaire", defaultSprite, false));
 
 
-        items.Add("PurpleSquare", new Item("PurpleSquare", "Carré violet", purpleSprite, true));
-        items.Add("YellowPara", new Item("YellowPara", "Paralèllogramme jaune", purpleSprite, true));
-        items.Add("BlueSmallTriangle", new Item("BlueSmallTriangle", "Petit triangle bleu", purpleSprite, true));
-        items.Add("BlueBigTriangle", new Item("BlueBigTriangle", "Grand triangle bleu", purpleSprite, true));
+        items.Add("(1) Triangle Green Small", new Item("(1) Triangle Green Small", "Triangle vert petit", greenSprite, true));
+        items.Add("(2) Triangle Yellow Small", new Item("(2) Triangle Yellow Small", "Triangle jaune petit", yellowSprite, true));
+        items.Add("(3) Triangle Red Medium", new Item("(3) Triangle Red Medium", "Triangle rouge moyen", redSprite, true));
+        items.Add("(4) Triangle Purple Big", new Item("(4) Triangle Purple Big", "Triangle Violet grand", redSprite, true));
+        items.Add("(5) Triangle Blue Big", new Item("(5) Triangle Blue Big", "Triangle bleu grand", blueSprite, true));
+        items.Add("(6) Triangle Red Small", new Item("(6) Triangle Red Small", "Triangle rouge petit", redSprite, true));
+        items.Add("(7) Triangle Purple Small", new Item("(7) Triangle Purple Small", "Triangle violet petit", purpleSprite, true));
+        items.Add("(8) Triangle Blue Small", new Item("(8) Triangle Blue Small", "Triangle bleu petit", blueSprite, true));
+        items.Add("(9) Triangle Green Small", new Item("(9) Triangle Green Small", "Triangle vert petit", greenSprite, true));
 
-        items.Add("RedMediumTriangle", new Item("RedMediumTriangle", "Moyen triangle rouge", purpleSprite, true));
-        items.Add("GreenSmallTriangle", new Item("GreenSmallTriangle", "Petit triangle vert", purpleSprite, true));
-        items.Add("VioletBigTriangle", new Item("VioletBigTriangle", "Grand triangle violet", purpleSprite, true));
 
         items.Add("Aucun", new Item("Aucun", "aucun item", defaultSprite, false));
     }

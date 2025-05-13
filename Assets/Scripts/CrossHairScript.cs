@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Xml.Linq;
 
 public class CrossHairScript : MonoBehaviour
 {
@@ -41,13 +42,14 @@ public class CrossHairScript : MonoBehaviour
     public Material redMaterial;
     public Material blueMaterial;
     public Material violetMaterial;
-
+    public Material blackMaterial;
 
 
     private Dictionary<string, Material> requiredMaterials = new Dictionary<string, Material>();
     private List<GameObject> coloredObjects = new List<GameObject>();
-    public bool testBool;
+    public bool testBool = false;
 
+    public GameObject puzzlePieces;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -67,14 +69,7 @@ public class CrossHairScript : MonoBehaviour
         ingredients.Add(itemsList.items["NAHGO3"].itemName);
         ingredients.Add(itemsList.items["Cu2O"].itemName);
 
-        requiredMaterials.Add("BigTriangleLeft (1)", blueMaterial);
-        requiredMaterials.Add("Square (1)", violetMaterial);
-        requiredMaterials.Add("SmallTriangle2 (1)", blueMaterial);
-        requiredMaterials.Add("Parallelogram (1)", yellowMaterial);
-        requiredMaterials.Add("MediumTriangle (1)", redMaterial);
-        requiredMaterials.Add("SmallTriangle1 (1)", greenMaterial);
-        requiredMaterials.Add("BigTriangle1 (1)", violetMaterial);
-
+      
 
     }
 
@@ -193,61 +188,156 @@ public class CrossHairScript : MonoBehaviour
               
                
             } else if(hit.collider.CompareTag("Interactable")) {
+                if (Input.GetKeyUp(KeyCode.C))
+                {
+                    bool win = true;
+
+                    // Define the correct piece names in order
+                    string[] correctOrder = new string[]
+                    {
+        "(1) Triangle Green Small",
+        "(2) Triangle Yellow Small",
+        "(3) Triangle Red Medium",
+        "(4) Triangle Purple Big",
+        "(5) Triangle Blue Big",
+        "(6) Triangle Red Small",
+        "(7) Triangle Purple Small",
+        "(8) Triangle Blue Small",
+        "(9) Triangle Green Small"
+                    };
+
+                    for (int i = 0; i < puzzlePieces.transform.childCount; i++)
+                    {
+                        Transform slot = puzzlePieces.transform.GetChild(i);
+                        if (slot.childCount == 0 || slot.GetChild(0).name != correctOrder[i])
+                        {
+                            win = false;
+                            break;
+                        }
+                    }
+
+                    if (win)
+                    {
+                        Debug.Log("Tangram puzzle solved!");
+                        gameScript.hasFinishedPlayground = true;
+                    }
+                    else
+                    {
+                        Debug.Log("Tangram puzzle not solved yet.");
+                    }
+                }
 
 
-                if(Input.GetKeyUp(KeyCode.R) && hit.collider.name.Contains("(1)"))
+                if (Input.GetKeyUp(KeyCode.V))
+                {
+
+                    string hitColName = hit.collider.gameObject.name;
+
+                    if(hitColName.Contains("Triangle"))
+                    {
+                        Renderer renderer = hit.collider.GetComponent<Renderer>();
+                        Debug.Log(hit.collider.transform.GetChild(0).name);
+                        gameScript.player.inventory.AddItem(itemsList.items[hit.collider.transform.GetChild(0).name]);
+                        gameScript.ChangeCurrentItem(itemsList.items[hit.collider.transform.GetChild(0).name]);
+                        hit.collider.transform.GetChild(0).name = "Holder";
+                        renderer.material = blackMaterial;
+                    }
+                }
+                if(Input.GetKeyUp(KeyCode.R))
                 {
                     string itName = gameScript.player.currentItem.itemName;
                     string hitColName = hit.collider.gameObject.name;
                     Renderer renderer = hit.collider.GetComponent<Renderer>();
-                   if (itName == "BlueBigTriangle")
+                    if (hit.collider.transform.GetChild(0).name != "Holder") return;
+                   if (itName == "(1) Triangle Green Small")
                     {
-                        if (hitColName == "BigTriangleLeft (1)")
-                        {
-                            renderer.material = blueMaterial;
-                        }
-                    } else if(itName == "PurpleSquare")
-                    {
-                        if (hitColName == "Square (1)")
-                        {
-                            renderer.material = violetMaterial;
-                        }
-                    }
-                    else if (itName == "BlueSmallTriangle")
-                    {
-                        if (hitColName == "SmallTriangle2 (1)")
-                        {
-                            renderer.material = blueMaterial;
-                        }
-                    }
-                    else if (itName == "YellowPara")
-                    {
-                        if(hitColName == "Parallelogram (1)")
-                        {
-                            renderer.material = yellowMaterial;
-                        }
-                    }
-                    else if (itName == "RedMediumTriangle")
-                    {
-                        if(hitColName == "MediumTriangle (1)")
-                        {
-                            renderer.material = redMaterial;
-                        }
-                    }
-                    else if (itName == "GreenSmallTriangle")
-                    {
-                        if (hitColName == "SmallTriangle1 (1)")
-                        {
+                        gameScript.player.inventory.RemoveItem(itName);
+                        hit.collider.transform.GetChild(0).name = itName;
+
+                        gameScript.ChangeCurrentItem(itemsList.items["Aucun"]);
+                    
                             renderer.material = greenMaterial;
-                        }
-                    }
-                    else if (itName == "VioletBigTriangle")
+                        
+                    } else if (itName == "(2) Triangle Yellow Small")
                     {
-                        if (hitColName == "BigTriangle1 (1)")
-                        {
-                            renderer.material = violetMaterial;
-                        }
+
+                        gameScript.player.inventory.RemoveItem(itName);
+                        hit.collider.transform.GetChild(0).name = itName;
+                        gameScript.ChangeCurrentItem(itemsList.items["Aucun"]);
+
+                        renderer.material = yellowMaterial;
+                        
                     }
+                    else if (itName == "(3) Triangle Red Medium")
+                    {
+
+                        gameScript.player.inventory.RemoveItem(itName);
+                    
+                        hit.collider.transform.GetChild(0).name = itName;
+                        gameScript.ChangeCurrentItem(itemsList.items["Aucun"]);
+
+                        renderer.material = redMaterial;
+                       
+                    }
+                    else if (itName == "(4) Triangle Purple Big")
+                    {
+
+                        gameScript.player.inventory.RemoveItem(itName);
+                        hit.collider.transform.GetChild(0).name = itName;
+                        gameScript.ChangeCurrentItem(itemsList.items["Aucun"]);
+
+                        renderer.material = violetMaterial;
+                        
+                    }
+                    else if (itName == "(5) Triangle Blue Big")
+                    {
+
+                        gameScript.player.inventory.RemoveItem(itName);
+                        hit.collider.transform.GetChild(0).name = itName;
+                        gameScript.ChangeCurrentItem(itemsList.items["Aucun"]);
+
+                        renderer.material = blueMaterial;
+                        
+                    }
+                    else if (itName == "(6) Triangle Red Small")
+                    {
+
+                        gameScript.player.inventory.RemoveItem(itName);
+                        hit.collider.transform.GetChild(0).name = itName;
+                        gameScript.ChangeCurrentItem(itemsList.items["Aucun"]);
+
+                        renderer.material = redMaterial;
+                        
+                    }
+                    else if (itName == "(7) Triangle Purple Small")
+                    {
+
+                        gameScript.player.inventory.RemoveItem(itName);
+                        hit.collider.transform.GetChild(0).name = itName;
+                        gameScript.ChangeCurrentItem(itemsList.items["Aucun"]);
+
+                        renderer.material = violetMaterial;
+                        
+                    }
+                    else if (itName == "(8) Triangle Blue Small")
+                    {
+
+                        gameScript.player.inventory.RemoveItem(itName);
+                        hit.collider.transform.GetChild(0).name = itName;
+                        gameScript.ChangeCurrentItem(itemsList.items["Aucun"]);
+
+                        renderer.material = blueMaterial;
+                        
+                    }
+                    else if (itName == "(9) Triangle Green Small")
+                    {
+                        gameScript.player.inventory.RemoveItem(itName);
+                        hit.collider.transform.GetChild(0).name = itName;
+                        gameScript.ChangeCurrentItem(itemsList.items["Aucun"]);
+
+                        renderer.material = greenMaterial;
+                    }
+                    
                 }
 
 
@@ -299,7 +389,7 @@ public class CrossHairScript : MonoBehaviour
                     if(hit.collider.name == "Door") {
                         if(gameScript.player.currentItem.itemName == "Clé") {
                             hit.collider.gameObject.GetComponent<Door>().OpenDoor();
-                            gameScript.player.inventory.RemoveItem(gameScript.player.currentItem);
+                            gameScript.player.inventory.RemoveItem(gameScript.player.currentItem.itemName);
                             actionsScript.FinishTask("Ouvrir la porte");
                         }
                     }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 
 public class Inventory
@@ -17,8 +18,16 @@ public class Inventory
     public void AddItem(Item item) {
         items.Add(item);
     }
-    public void RemoveItem(Item item) {
-        items.Remove(item);
+    public void RemoveItem(string item) {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].itemName == item)
+            {
+                Debug.Log(i);
+                items.RemoveAt(i);
+                break;
+            }
+        }
     }
     public void FlushInventory() {
         items.Clear();

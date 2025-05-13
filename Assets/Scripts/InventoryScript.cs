@@ -38,15 +38,16 @@ public class InventoryScript : MonoBehaviour
 
             if(isShowPanel) {
            
-               for(int i=1;i<player.inventory.GetCount();i++) {
+               for(int i=0;i<player.inventory.GetCount();i++) {
                 Item currentItem = player.inventory.items[i];
-                   if (currentItem.itemName == "Bag") continue; // just in case
+                   //if (currentItem.itemName == "Bag") continue; // just in case
                 Transform slot = items.transform.GetChild(i);
-                Image itemImage = slot.GetComponentInChildren<Image>();
+                Image itemImage = slot.GetComponentInChildren<Image>().GetComponentInChildren<Image>();
                 TextMeshProUGUI itemText = slot.GetComponentInChildren<TextMeshProUGUI>();
                
                itemImage.sprite = currentItem.icon;
                itemImage.enabled = true;
+                    itemImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                itemText.text = currentItem.itemName;
                }
             }
