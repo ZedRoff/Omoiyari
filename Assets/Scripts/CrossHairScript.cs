@@ -189,15 +189,7 @@ public class CrossHairScript : MonoBehaviour
                
             } else if(hit.collider.CompareTag("Interactable")) {
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
                 if (Input.GetKeyUp(KeyCode.C) && hit.collider.name.Contains("Triangle"))
-=======
-                if (Input.GetKeyUp(KeyCode.C))
->>>>>>> Stashed changes
-=======
-                if (Input.GetKeyUp(KeyCode.C))
->>>>>>> Stashed changes
 =======
                 if (Input.GetKeyUp(KeyCode.C))
 >>>>>>> Stashed changes
@@ -261,15 +253,7 @@ public class CrossHairScript : MonoBehaviour
                     string hitColName = hit.collider.gameObject.name;
                     Renderer renderer = hit.collider.GetComponent<Renderer>();
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
                     if (hit.collider.name.Contains("Triangle") && hit.collider.transform.GetChild(0).name != "Holder") return;
-=======
-                    if (hit.collider.transform.GetChild(0).name != "Holder") return;
->>>>>>> Stashed changes
-=======
-                    if (hit.collider.transform.GetChild(0).name != "Holder") return;
->>>>>>> Stashed changes
 =======
                     if (hit.collider.transform.GetChild(0).name != "Holder") return;
 >>>>>>> Stashed changes
