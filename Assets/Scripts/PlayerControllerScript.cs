@@ -65,7 +65,7 @@ public class MouseLookMovement : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.LeftShift)) {
             
-            moveSpeed = 5.0f;
+            moveSpeed = 3.5f;
             isRunning = false;
 
         }
