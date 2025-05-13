@@ -188,7 +188,11 @@ public class CrossHairScript : MonoBehaviour
               
                
             } else if(hit.collider.CompareTag("Interactable")) {
+<<<<<<< Updated upstream
                 if (Input.GetKeyUp(KeyCode.C) && hit.collider.name.Contains("Triangle"))
+=======
+                if (Input.GetKeyUp(KeyCode.C))
+>>>>>>> Stashed changes
                 {
                     bool win = true;
 
@@ -248,7 +252,11 @@ public class CrossHairScript : MonoBehaviour
                     string itName = gameScript.player.currentItem.itemName;
                     string hitColName = hit.collider.gameObject.name;
                     Renderer renderer = hit.collider.GetComponent<Renderer>();
+<<<<<<< Updated upstream
                     if (hit.collider.name.Contains("Triangle") && hit.collider.transform.GetChild(0).name != "Holder") return;
+=======
+                    if (hit.collider.transform.GetChild(0).name != "Holder") return;
+>>>>>>> Stashed changes
                    if (itName == "(1) Triangle Green Small")
                     {
                         gameScript.player.inventory.RemoveItem(itName);
