@@ -36,6 +36,19 @@ public class CrossHairScript : MonoBehaviour
 
     public GameObject colorsMenu;
 
+    public Material yellowMaterial;
+    public Material greenMaterial;
+    public Material redMaterial;
+    public Material blueMaterial;
+    public Material violetMaterial;
+
+
+
+    private Dictionary<string, Material> requiredMaterials = new Dictionary<string, Material>();
+    private List<GameObject> coloredObjects = new List<GameObject>();
+    public bool testBool;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,7 +67,38 @@ public class CrossHairScript : MonoBehaviour
         ingredients.Add(itemsList.items["NAHGO3"].itemName);
         ingredients.Add(itemsList.items["Cu2O"].itemName);
 
-        
+        requiredMaterials.Add("BigTriangleLeft (1)", blueMaterial);
+        requiredMaterials.Add("Square (1)", violetMaterial);
+        requiredMaterials.Add("SmallTriangle2 (1)", blueMaterial);
+        requiredMaterials.Add("Parallelogram (1)", yellowMaterial);
+        requiredMaterials.Add("MediumTriangle (1)", redMaterial);
+        requiredMaterials.Add("SmallTriangle1 (1)", greenMaterial);
+        requiredMaterials.Add("BigTriangle1 (1)", violetMaterial);
+
+
+    }
+
+    public bool AreAllColorsSet()
+    {
+        foreach (var item in requiredMaterials)
+        {
+            GameObject obj = GameObject.Find(item.Key);
+
+            if (obj != null)
+            {
+                Renderer renderer = obj.GetComponent<Renderer>();
+                if (renderer != null && renderer.material != item.Value)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                Debug.LogError($"Object {item.Key} not found!");
+                return false;
+            }
+        }
+        return true;
     }
 
     public void VerserDansBecher(string itemName)
@@ -96,7 +140,17 @@ public class CrossHairScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+
+
+        if (AreAllColorsSet() || testBool)
+        {
+            gameScript.hasFinishedPlayground = true;
+            gameScript.filter.DeActivateDaltonism();
+            gameScript.playgroundCollider.GetComponent<BoxCollider>().isTrigger = true;
+        }
+
+
+
         Ray ray = new Ray(camView.transform.position, camView.transform.forward);
         RaycastHit hit;
          Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
@@ -109,6 +163,8 @@ public class CrossHairScript : MonoBehaviour
                     string itemName = hit.collider.gameObject.name;
 
             if(itemsList.items.ContainsKey(itemName)) {
+
+
                 Item item = itemsList.items[itemName];
                 inventoryScript.player.inventory.AddItem(item);
                         if(item.usable)
@@ -121,7 +177,15 @@ public class CrossHairScript : MonoBehaviour
                         {
                             actionsScript.FinishTask("Trouvez la clé");
                         }
-                Destroy(hit.collider.gameObject);
+
+                        if (hit.collider.gameObject.TryGetComponent<TangramPiece>(out var myComponent))
+                        {
+                            hit.collider.GetComponent<TangramPiece>().Collect();
+                        }
+
+
+
+                        hit.collider.gameObject.SetActive(false);
             }
                 }
                 crossHair.sprite = EKeyImage;
@@ -129,6 +193,63 @@ public class CrossHairScript : MonoBehaviour
               
                
             } else if(hit.collider.CompareTag("Interactable")) {
+
+
+                if(Input.GetKeyUp(KeyCode.R) && hit.collider.name.Contains("(1)"))
+                {
+                    string itName = gameScript.player.currentItem.itemName;
+                    string hitColName = hit.collider.gameObject.name;
+                    Renderer renderer = hit.collider.GetComponent<Renderer>();
+                   if (itName == "BlueBigTriangle")
+                    {
+                        if (hitColName == "BigTriangleLeft (1)")
+                        {
+                            renderer.material = blueMaterial;
+                        }
+                    } else if(itName == "PurpleSquare")
+                    {
+                        if (hitColName == "Square (1)")
+                        {
+                            renderer.material = violetMaterial;
+                        }
+                    }
+                    else if (itName == "BlueSmallTriangle")
+                    {
+                        if (hitColName == "SmallTriangle2 (1)")
+                        {
+                            renderer.material = blueMaterial;
+                        }
+                    }
+                    else if (itName == "YellowPara")
+                    {
+                        if(hitColName == "Parallelogram (1)")
+                        {
+                            renderer.material = yellowMaterial;
+                        }
+                    }
+                    else if (itName == "RedMediumTriangle")
+                    {
+                        if(hitColName == "MediumTriangle (1)")
+                        {
+                            renderer.material = redMaterial;
+                        }
+                    }
+                    else if (itName == "GreenSmallTriangle")
+                    {
+                        if (hitColName == "SmallTriangle1 (1)")
+                        {
+                            renderer.material = greenMaterial;
+                        }
+                    }
+                    else if (itName == "VioletBigTriangle")
+                    {
+                        if (hitColName == "BigTriangle1 (1)")
+                        {
+                            renderer.material = violetMaterial;
+                        }
+                    }
+                }
+
 
                 if(Input.GetKeyUp(KeyCode.R) && hit.collider.name == "ResultColor" && !gameScript.isAllowedToAnswerChemistry)
                 {

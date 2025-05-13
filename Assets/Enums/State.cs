@@ -10,5 +10,6 @@ public enum State {
     StartBecherAlreadyDialog,
     NotAllowedToAnswer,
     StartChemistryDialog,
+    StartPlayGroundDialog,
     InBook
 }

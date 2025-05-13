@@ -10,6 +10,7 @@ public class ItemsList : MonoBehaviour
     public Sprite defaultSprite;
     public Sprite bookSprite;
     public Dictionary<string, Item> items;
+    public Sprite purpleSprite;
     void Start()
     {
        
@@ -24,6 +25,17 @@ public class ItemsList : MonoBehaviour
 
         items.Add("Book", new Item("Book", "Un livre de chimie", bookSprite, true));
         items.Add("Bag", new Item("Bag", "Votre inventaire", defaultSprite, false));
+
+
+        items.Add("PurpleSquare", new Item("PurpleSquare", "Carré violet", purpleSprite, true));
+        items.Add("YellowPara", new Item("YellowPara", "Paralèllogramme jaune", purpleSprite, true));
+        items.Add("BlueSmallTriangle", new Item("BlueSmallTriangle", "Petit triangle bleu", purpleSprite, true));
+        items.Add("BlueBigTriangle", new Item("BlueBigTriangle", "Grand triangle bleu", purpleSprite, true));
+
+        items.Add("RedMediumTriangle", new Item("RedMediumTriangle", "Moyen triangle rouge", purpleSprite, true));
+        items.Add("GreenSmallTriangle", new Item("GreenSmallTriangle", "Petit triangle vert", purpleSprite, true));
+        items.Add("VioletBigTriangle", new Item("VioletBigTriangle", "Grand triangle violet", purpleSprite, true));
+
         items.Add("Aucun", new Item("Aucun", "aucun item", defaultSprite, false));
     }
 

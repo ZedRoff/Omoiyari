@@ -10,13 +10,14 @@ public class TangramPiece : MonoBehaviour
     {
         // Récupère un AudioSource sur l'objet
         audioSource = GetComponent<AudioSource>();
+       
    
     }
     // Méthode pour marquer la pièce comme collectée
     public void Collect()
     {
+        audioSource.Play();
         isCollected = true;
-        audioSource.PlayOneShot(collectSound);
-        gameObject.SetActive(false); // Normalement pas besoin car convertit en item cache la pièce une fois collectée
+     
     }
 }
